@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graduate Employment Dashboard</title>
+  <style>
+    /* ====== Global Styles ====== */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+    }
+
+    header {
+      background-color: #2a4d69;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #4b86b4;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      background-color: white;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #2a4d69;
+      margin-bottom: 15px;
+    }
+
+    ul.job-listings {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.job-listings li {
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    form label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    form input,
+    form textarea,
+    form select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    form button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2a4d69;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #1f3a4d;
+    }
+
+    footer {
+      background-color: #2a4d69;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    #formMessage {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Graduate Employment Initiative</h1>
+    <p>Helping fresh graduates find meaningful job opportunities</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#apply">Apply</a>
+  </nav>
+
+  <div class="container">
+    <!-- About Section -->
+    <section id="about">
+      <h2>About the Program</h2>
+      <p>
+        Our company is launching a special employment initiative dedicated to graduates who are currently looking for job opportunities. We believe in empowering fresh talent and giving them a platform to start their careers.
+      </p>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section id="jobs">
+      <h2>Available Job Openings</h2>
+      <ul class="job-listings">
+        <li>
+          <strong>Software Intern</strong><br/>
+          Location: Remote<br/>
+          Description: Assist with software development and testing.
+        </li>
+        <li>
+          <strong>HR Assistant</strong><br/>
+          Location: Mumbai, India<br/>
+          Description: Support HR operations and recruitment.
+        </li>
+        <li>
+          <strong>Data Entry Clerk</strong><br/>
+          Location: Chennai, India<br/>
+          Description: Maintain and input company data accurately.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Apply Section -->
+    <section id="apply">
+      <h2>Apply Now</h2>
+      <form id="applicationForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required/>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required/>
+
+        <label for="jobRole">Select Job Role:</label>
+        <select id="jobRole" name="jobRole" required>
+          <option value="">-- Choose a Role --</option>
+          <option value="Software Intern">Software Intern</option>
+          <option value="HR Assistant">HR Assistant</option>
+          <option value="Data Entry Clerk">Data Entry Clerk</option>
+        </select>
+
+        <label for="message">Why should we hire you?</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Submit Application</button>
+        <div id="formMessage"></div>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 Your Company Name. All rights reserved.
+  </footer>
+
+  <script>
+    // Handle form submission
+    document.getElementById("applicationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Simulate form processing
+      const name = document.getElementById("name").value;
+      const role = document.getElementById("jobRole").value;
+
+      document.getElementById("formMessage").textContent =
+        "Thank you " + name + "! Your application for '" + role + "' has been received.";
+
+      // Reset form
+      this.reset();
+    });
+  </script>
+
+</body>
+</html>
